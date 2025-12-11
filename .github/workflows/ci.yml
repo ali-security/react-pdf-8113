@@ -7,7 +7,7 @@ on:
   push:
     branches: ['*']
   pull_request:
-    branches: [main]
+    branches: [main, master]
 
 jobs:
   lint:
@@ -15,11 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure npm time machine registry
+        run: npm config set registry https://:2023-01-11T08%3A00%3A22.777Z@time-machines-npm.sealsecurity.io/
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Cache .yarn/cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: yarn-cache
         with:
@@ -49,11 +51,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure npm time machine registry
+        run: npm config set registry https://:2023-01-11T08%3A00%3A22.777Z@time-machines-npm.sealsecurity.io/
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Cache .yarn/cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: yarn-cache
         with:
@@ -83,11 +87,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure npm time machine registry
+        run: npm config set registry https://:2023-01-11T08%3A00%3A22.777Z@time-machines-npm.sealsecurity.io/
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Cache .yarn/cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: yarn-cache
         with:
